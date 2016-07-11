@@ -18,6 +18,7 @@ class GeonodeCmsMapPlugin(CMSPlugin):
         'Geonode Map ID',
         blank=False,
         help_text=u'Geonode Map ID. To get this, read the number after the word "/maps/" in the URL of your geonode map'
+        # TODO this can be improved by pinging the geonode API and proving a dropdown list of available maps
     )
 
     geonode_map_caption = models.CharField(
