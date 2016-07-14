@@ -2,6 +2,7 @@
 from django.db import models
 
 from cms.models import CMSPlugin
+import geonode.maps
 
 
 class GeonodeCmsMapPlugin(CMSPlugin):
@@ -9,7 +10,7 @@ class GeonodeCmsMapPlugin(CMSPlugin):
     geonode_server = models.CharField(
         'Geonode Server',
         max_length='200',
-        default='http://data.chennaifloodmanagement.org',
+        default='http://chennaifloodmanagement.org',
         blank=False,
         help_text=u'Geonode server address like this - http://example.com'
     )

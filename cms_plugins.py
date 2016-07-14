@@ -6,8 +6,9 @@ from cms.plugin_pool import plugin_pool
 
 from .models import GeonodeCmsMapPlugin
 
+
 class GeonodePlugin(CMSPluginBase):
-    name=u'Geonode map'
+    name = u'Geonode map'
     model = GeonodeCmsMapPlugin
     render_template = 'geonode_cms_map/_geonode_cms_map_plugin.html'
     text_enabled = True
