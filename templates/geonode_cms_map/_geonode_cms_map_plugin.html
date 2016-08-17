@@ -1,9 +1,22 @@
 <div class="container">
     <h3>{{ instance.geonode_map_caption }}</h3>
-    <iframe style="border: groove;" height="{{ instance.geonode_map_height }}" width="{{ instance.geonode_map_width }}%"
-            src="{{ instance.geonode_server }}/maps/{{ instance.geonode_map_id }}/embed"></iframe>
     <div class="row">
-        <a class="btn btn-info btn-space" href="{{ instance.geonode_server }}/maps/{{ instance.geonode_map_id }}/view" role="button" target="_blank">View Full Map</a>
-        <a class="btn btn-info btn-space" href="{{ instance.geonode_server }}/maps/{{ instance.geonode_map_id }}" role="button" target="_blank">Access Geospatial Data</a>
+          <div class="col-md-10">
+                <iframe style="border: groove;" height="{{ instance.geonode_map_height }}" width="{{ instance.geonode_map_width }}%"
+                        src="{{ instance.geonode_server }}/maps/{{ instance.geonode_map_id }}/embed"></iframe>
+          </div>
+          <div class="col-md-2">
+                <h3>Legend</h3>
+              {% for layer in layers %}
+                {% if layer.visibility %}
+                  <h4>{{ layer.title }}</h4>
+                    <img src="{{ instance.geonode_server }}/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER={{ layer.name }}&STYLE={{ layer.styles }}"></br>
+                {% endif %}
+              {% endfor %}
+          </div>
+    </div>
+    <div class="row">
+          <a class="btn btn-info btn-space" href="{{ instance.geonode_server }}/maps/{{ instance.geonode_map_id }}/view" role="button" target="_blank">View Full Map</a>
+          <a class="btn btn-info btn-space" href="{{ instance.geonode_server }}/maps/{{ instance.geonode_map_id }}" role="button" target="_blank">Access Geospatial Data</a>
     </div>
 </div>
