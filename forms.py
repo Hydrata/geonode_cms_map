@@ -11,6 +11,7 @@ class GeonodeMapSelectForm(ModelForm):
 
     class Meta:
         model = Map
+        fields = '__all__'
 
     def __init__(self, *args, **kwargs):
         super(GeonodeMapSelectForm, self).__init__(*args, **kwargs)
